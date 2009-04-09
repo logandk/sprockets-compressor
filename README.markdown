@@ -35,6 +35,8 @@ Besides installation, you don't have to do anything to use this plugin. It simpl
 
 In the above example, `file.js` would be a compressed javascript file.
 
+**Note:** Compression is only enabled when your rails app is in `production` mode.
+
 
 
 Credits
