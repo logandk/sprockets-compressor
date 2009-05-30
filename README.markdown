@@ -28,14 +28,19 @@ Use this if you prefer the idea of being able to easily switch between using edg
 Usage
 =====
 
-Besides installation, you don't have to do anything to use this plugin. It simply overrides the `save_to` method of the `Sprockets::Concatenation` class, to pass the output through *YUI Compressor*.
+To enable compression, set `Sprockets.compression = true`. If you want to enable compression for a specific environment, say `production`, put this in `config/environments/production.rb`:
+
+	config.after_initialize do
+	  Sprockets.compression = true
+	end
+
+This plugin simply overrides the `save_to` method of the `Sprockets::Concatenation` class, to pass the output through *YUI Compressor*. When you have enabled compression
+Sprockets will automatically create compressed javascript output when the `save_to` method is called.
 
 	secretary = Sprockets::Secretary.new({ ... })
 	secretary.concatenation.save_to("file.js")
 
 In the above example, `file.js` would be a compressed javascript file.
-
-**Note:** Compression is only enabled when your rails app is in `production` mode.
 
 
 
