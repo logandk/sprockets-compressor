@@ -13,7 +13,7 @@ module Sprockets
       
       if Sprockets.compression
         compressor = Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), '..', 'vendor', 'yuicompressor-*.jar')))
-        %x{ java -jar #{compressor} -o #{filename} #{filename} }
+        %x{ java -jar #{compressor} --charset utf8 -o #{filename} #{filename} }
       end
       
       status
