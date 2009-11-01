@@ -1,3 +1,11 @@
+begin
+  require 'sprockets'
+rescue LoadError => e
+  e.message << " (You may need to install the sprockets gem)"
+  raise e
+end
+
+
 module Sprockets
   
   @compression = false
